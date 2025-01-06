@@ -6,7 +6,7 @@ export async function geradorLista(listaJogos: string) {
     "messages": [
         {
             "role": "user",
-            "content": "estou desenvolvendo um aplicativo que cria uma lista de recomendações de jogos, baseado na lista de jogos informada pelo usuário.\nquero enviar uma lista de jogos e voce irá responder a lista de jogos recomendados no fomato de array pronta para ser consumida pelo componente FlatList do React Native, os atributos do array sao nome, plataformas (em texto simples), descricao e imagem (imagem da capa, no formato URL), retorne apenas o array\n"
+            "content": "estou desenvolvendo um aplicativo que cria uma lista de recomendações de jogos, baseado na lista de jogos informada pelo usuário.\nquero enviar uma lista de jogos e voce irá responder a lista de jogos recomendados no fomato de array pronta para ser consumida pelo componente FlatList do React Native, os atributos do array sao nome, plataformas (em texto simples), descricao e imagem (imagem válida do jogo, no formato URL), retorne apenas o array\n"
         },
         {
             "role": "assistant",
@@ -18,6 +18,8 @@ export async function geradorLista(listaJogos: string) {
         },
     ],
     "model": "llama-3.1-70b-versatile",
+    "temperature": 1,
+    "max_tokens": 1024,
 
   });
 

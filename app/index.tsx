@@ -1,7 +1,7 @@
 import { geradorLista } from "@/services/ai/generator";
 import styles from "@/styles";
 import { useState } from "react";
-import { Text, View, TextInput, TouchableOpacity, FlatList, Image} from "react-native";
+import { Text, View, TextInput, TouchableOpacity, FlatList, Image, ScrollView} from "react-native";
 
 interface jogo {
   nome:string;
@@ -43,7 +43,7 @@ export default function Index() {
       <View
         style={styles.container}
       >
-      <Text  style={styles.title}>O que jogar.</Text>
+      <Text  style={styles.title}>Jogos Parecidos</Text>
       <TextInput
         onChangeText={setlistaJogos}
         value={listaJogos}
@@ -54,11 +54,11 @@ export default function Index() {
 
       <TouchableOpacity style={styles.button} onPress={gerarListaJogos}>
         <text style={styles.buttonText}>
-          { isLoading ? "Carregando..." : "Gerar Recomendações"}
+          { isLoading ? "Carregando..." : "Procurar Jogos"}
         </text>
       </TouchableOpacity>
 
-      <View>
+      <ScrollView>
        
         <FlatList
           data = {resposta}
@@ -68,12 +68,11 @@ export default function Index() {
             
             <Text style={styles.cardTitle}>{item.nome} ({item.plataformas})</Text>
             <Text style={styles.cardText}>{item.descricao}</Text>
-            <Text style={styles.cardText}>{item.imagem}</Text>
-            <Image source={{ uri: item.imagem }} />
+            <Image source={{ uri: item.imagem }} style={styles.image} />
           </View>
         )}
       />
-      </View>
+      </ScrollView>
 
     </View>
     

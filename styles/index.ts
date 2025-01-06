@@ -53,7 +53,11 @@ const styles = StyleSheet.create({
       cardText:{
         fontSize:16,
         color: '#666'
-      }
+      },
+      image: {
+        width: 200,
+        height: 100,
+      },
 })
 
 export default styles;
